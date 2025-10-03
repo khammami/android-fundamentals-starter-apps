@@ -17,12 +17,15 @@
 package com.android.example.wordlistsql;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Implements a simple Adapter for a RecyclerView.
@@ -33,7 +36,7 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
     /**
      *  Custom view holder with a text view and two buttons.
      */
-    class WordViewHolder extends RecyclerView.ViewHolder {
+    static class WordViewHolder extends RecyclerView.ViewHolder {
         public final TextView wordItemView;
         Button delete_button;
         Button edit_button;
@@ -59,8 +62,9 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
         mContext = context;
     }
 
+    @NonNull
     @Override
-    public WordViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public WordViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = mInflater.inflate(R.layout.wordlist_item, parent, false);
         return new WordViewHolder(itemView);
     }
